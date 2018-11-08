@@ -1,21 +1,18 @@
 # Packer
 
-- There are multiple ways to deply software with OS, although `Packer` is a better approach to build custom/pre-configured OS image.
+There are multiple ways to deply software with OS, although [Packer](https://packer.io) is a better approach to build custom/pre-configured OS image.
 
----
+#### Why ?
 
-> Ok let me try `packer` !
-
-#### Packer features
-
-- Its open source - matters of course :)
-- HashiCorp
-- MI is a pre-configured OS
+- is open source tool from Hashicorp - matters of course :)
+- MI (Machine Image) is a pre-configured OS, packer makes it easy to build MI
 - Ofcourse, it is not a configuration management tool
-- Machine image can be easily created using packer. This is similar approach as https://build.opensuse.org which helps building your own distro. But packer is distro agonostic.
+- It is similar approach as https://build.opensuse.org that helps building your own distro on top of opensuse... **but, packer is distro agonostic**
 - Major cloud providers are supported :)
 
-> Here, I am trying to build EC2 AMI to boot RHEL OS and contains latest updates, and pre-installed/configured Java, and Nginx. Trying to use only required fields to build simple image.
+#### What is included in this project ?
+
+Here, I am trying to build EC2 AMI to boot RHEL OS and it has latest updates, Java, and Nginx installed/configured. I used only required fields to build simple EC2 image.
 
 #### Install packer on Mac
 
@@ -286,17 +283,18 @@ Build 'amazon-ebs' finished.
 us-west-2: ami-0b6aee1606d914ef5
 ```
 
-#### Launch instance using the newly generated image
+#### At end,
 
-#### Test
-
-#### Login to the instance and check logs
+- Launch instance using the newly generated image
+- Login to the instance and check logs
 
 ```
 [ec2-user@ip-10-0-0-83 ~]$ sudo tail -f /var/log/nginx/access.log
 X.X.X.X - - [08/Nov/2018:07:50:16 +0000] "GET / HTTP/1.1" 200 103 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.1 Safari/605.1.15" "-"
 ^C
 ```
+
+- Delete the instance and AMI - Manually for now.
 
 ## References
 
